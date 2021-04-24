@@ -7,24 +7,15 @@ using UnityEngine;
 /// </summary>
 public class BirdFlyPassiveAI : BirdFlyAI
 {
-    [SerializeField]
-    private Direction _flyDirection;
-
-    [SerializeField]
-    protected FlyMode _flyMode;
-
-    [SerializeField]
-    private float _normalFlySpeed;
-
     private void Update()
     {
         Fly(_flyMode);
     }
 
-    public override void Initialize(Direction flyDirection, float normalFlySpeed)
+    public override void Initialize(Direction flyDirection, BirdFlyData birdFlyData)
     {
         _flyDirection = flyDirection;
-        _normalFlySpeed = normalFlySpeed;
+        _normalFlySpeed = birdFlyData.NormalFlySpeed;
         _flyMode = FlyMode.Normal;
     }
     protected override void Fly(FlyMode flyMode)

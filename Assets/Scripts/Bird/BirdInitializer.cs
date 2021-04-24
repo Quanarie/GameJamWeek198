@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// This class is used to intialize the bird
+/// This is the base class used to intialize the bird
 /// </summary>
-public class BirdInitializer : MonoBehaviour
+public abstract class BirdInitializer : MonoBehaviour
 {
     [SerializeField]
+    protected BirdData _birdData;
+
+    [SerializeField]
     private BirdFlyAI _birdFlyAI;
-    public void Initialize(BirdStartData birdStartData)
+    public virtual void Initialize(BirdStartData birdStartData)
     {
         gameObject.transform.position = birdStartData.Position;
         gameObject.transform.rotation = birdStartData.Rotation;
 
-        if(!_birdFlyAI)
+        if (!_birdFlyAI)
             _birdFlyAI = gameObject.GetComponent<BirdFlyAI>();
 
         if (_birdFlyAI)
-            _birdFlyAI.Initialize(birdStartData.FlyDirection, 5);
+            _birdFlyAI.Initialize(birdStartData.FlyDirection, _birdData.BirdFlyData);
         else
             Debug.LogError($"{GetType().FullName} : Failed to find {typeof(BirdFlyAI).FullName}.");
     }

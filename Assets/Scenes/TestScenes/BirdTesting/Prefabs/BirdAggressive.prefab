@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7772384129960851201}
   - component: {fileID: 4096457563517109876}
   - component: {fileID: 853702667848296873}
+  - component: {fileID: -2922146073145369514}
   m_Layer: 0
   m_Name: BirdAggressive
   m_TagString: Untagged
@@ -108,12 +109,11 @@ MonoBehaviour:
       AttackRange: 2
       AttackDamage: 2
       AttackDuration: 1
+    BirdHealthData:
+      MaxHealth: 0
   _birdFlyAI: {fileID: 0}
+  _birdHealth: {fileID: 0}
   _birdAttackAI: {fileID: 0}
-  _birdAttackData:
-    AttackRange: 2
-    AttackDamage: 2
-    AttackDuration: 1
 --- !u!114 &9203587613102631678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,3 +188,17 @@ MonoBehaviour:
   _attackDamage: 0
   _attackDuraction: 0
   _isAbleToAttemptToAttack: 0
+--- !u!114 &-2922146073145369514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7076865662312989447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e376bd4468616de47bf4c65da4eea8db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 50
+  _currentHealth: 0

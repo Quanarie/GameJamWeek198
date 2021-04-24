@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5324551233010666770}
   - component: {fileID: -2085229843608122038}
   - component: {fileID: 2726497562448106557}
+  - component: {fileID: -4033215364330634288}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Untagged
@@ -119,7 +120,10 @@ MonoBehaviour:
       AttackRange: 0
       AttackDamage: 0
       AttackDuration: 0
+    BirdHealthData:
+      MaxHealth: 0
   _birdFlyAI: {fileID: 0}
+  _birdHealth: {fileID: 0}
 --- !u!114 &2726497562448106557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,3 +139,17 @@ MonoBehaviour:
   _flyDirection: 0
   _flyMode: 0
   _normalFlySpeed: 5
+--- !u!114 &-4033215364330634288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3564792325737383262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e376bd4468616de47bf4c65da4eea8db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 50
+  _currentHealth: 0

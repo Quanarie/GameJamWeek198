@@ -12,6 +12,10 @@ public abstract class BirdInitializer : MonoBehaviour
 
     [SerializeField]
     private BirdFlyAI _birdFlyAI;
+
+    [SerializeField]
+    private BirdHealth _birdHealth;
+
     public virtual void Initialize(BirdStartData birdStartData)
     {
         gameObject.transform.position = birdStartData.Position;
@@ -24,5 +28,13 @@ public abstract class BirdInitializer : MonoBehaviour
             _birdFlyAI.Initialize(birdStartData.FlyDirection, _birdData.BirdFlyData);
         else
             Debug.LogError($"{GetType().FullName} : Failed to find {typeof(BirdFlyAI).FullName}.");
+
+        if (!_birdHealth)
+            _birdHealth = gameObject.GetComponent<BirdHealth>();
+
+        if (_birdHealth)
+            _birdHealth.Initialize(_birdData.BirdHealthData);
+        else
+            Debug.LogError($"{GetType().FullName} : Failed to find {typeof(BirdHealth).FullName}.");
     }
 }

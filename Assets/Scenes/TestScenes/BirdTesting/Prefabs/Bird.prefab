@@ -106,9 +106,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 3564792325737383262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8ebacff24147d14a9b0bf1dc424876b, type: 3}
+  m_Script: {fileID: 11500000, guid: f3448ab6d6a6b1d438abb53efcb0321a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _birdData:
+    BirdFlyData:
+      NormalFlySpeed: 5
+      AggressiveFlySpeed: 0
+      MinDistanceFromTarget: 0
+      AggroRange: 0
+    BirdAttackData:
+      AttackRange: 0
+      AttackDamage: 0
+      AttackDuration: 0
+  _birdFlyAI: {fileID: 0}
 --- !u!114 &2726497562448106557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,4 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df32cdd6ea36a0c44aa95343dab6684d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _flyDirection: 0
+  _flyMode: 0
   _normalFlySpeed: 5

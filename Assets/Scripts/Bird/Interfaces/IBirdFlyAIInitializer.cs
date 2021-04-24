@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IBirdFlyAIInitializer
 {
-    void Initialize(Direction flyDirection, float normalFlySpeed);
+    void Initialize(Direction flyDirection, BirdFlyData birdFlyData);
 }

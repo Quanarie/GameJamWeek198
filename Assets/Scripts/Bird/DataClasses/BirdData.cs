@@ -8,4 +8,5 @@ public class BirdData
 {
     public BirdFlyData BirdFlyData;
     public BirdAttackData BirdAttackData;
+    public BirdHealthData BirdHealthData;
 }

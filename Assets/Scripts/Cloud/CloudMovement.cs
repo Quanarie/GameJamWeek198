@@ -13,15 +13,8 @@ public class CloudMovement : MonoBehaviour
 
     void Update()
     {
-        MoveClouds();
-    }
-    void MoveClouds()
-    {
-        foreach (GameObject cloud in GetComponentInParent<CloudSpawner>().Clouds)
-        {
-            Vector3 pos = cloud.transform.position;
-            pos.y += Time.deltaTime * cloudSpeed;
-            cloud.transform.position = pos;
-        }
+        Vector3 pos = transform.position;
+        pos.y += Time.deltaTime * cloudSpeed;
+        transform.position = pos;
     }
 }

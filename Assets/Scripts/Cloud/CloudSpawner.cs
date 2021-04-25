@@ -46,6 +46,7 @@ public class CloudSpawner : MonoBehaviour
     private void AddCloud()
     {
         GameObject cloud = Instantiate(cloudPrefab);
+        cloud.transform.SetParent(gameObject.transform);
         Vector3 pos = Vector3.zero;
         pos.x = Random.Range(transform.position.x + leftUpPoint.x, transform.position.x + rightDownPoint.x);
         pos.y = Random.Range(transform.position.y + rightDownPoint.y, transform.position.y + leftUpPoint.y);

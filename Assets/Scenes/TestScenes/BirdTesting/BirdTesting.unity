@@ -159,7 +159,7 @@ MonoBehaviour:
   _spawnerFrequencyIncreaser: 0
   _spawnerFrequency: 0
   _timePassedSinceLastSpawn: 0
-  _prefabBird: {fileID: 7076865662312989447, guid: 0898b155265e1c942afd33a25716a798, type: 3}
+  _prefabBird: {fileID: 1507077900}
   _isSpawningEnabled: 1
 --- !u!4 &44778884
 Transform:
@@ -191,6 +191,11 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.3
+--- !u!1 &1507077900 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1748879984246902423, guid: 0898b155265e1c942afd33a25716a798, type: 3}
+  m_PrefabInstance: {fileID: 1748879983545672091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1551076609
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +209,7 @@ GameObject:
   - component: {fileID: 1551076612}
   - component: {fileID: 1551076610}
   - component: {fileID: 1551076611}
+  - component: {fileID: 1551076615}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -302,6 +308,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1551076615
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551076609}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1633483333
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,3 +505,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1748879983545672091
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1748879984246902422, guid: 0898b155265e1c942afd33a25716a798, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1748879984246902422, guid: 0898b155265e1c942afd33a25716a798, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -113
+      objectReference: {fileID: 0}
+    - target: {fileID: 1748879984246902422, guid: 0898b155265e1c942afd33a25716a798, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1748879984246902422, guid: 0898b155265e1c942afd33a25716a798, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1748879984246902422, guid: 0898b155265e1c942afd33a25716a798, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1748879984246902422, guid: 0898b155265e1c942afd33a25716a798, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1748879984246902422, guid: 0898b155265e1c942afd33a25716a798, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1748879984246902422, guid: 0898b155265e1c942afd33a25716a798, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1748879984246902422, guid: 0898b155265e1c942afd33a25716a798, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1748879984246902422, guid: 0898b155265e1c942afd33a25716a798, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1748879984246902422, guid: 0898b155265e1c942afd33a25716a798, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1748879984246902423, guid: 0898b155265e1c942afd33a25716a798, type: 3}
+      propertyPath: m_Name
+      value: BirdAggressive
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0898b155265e1c942afd33a25716a798, type: 3}

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(CircleCollider2D))]
 public class BirdFlyAggressiveAI : BirdFlyAI
 {
     [SerializeField]
@@ -29,6 +30,10 @@ public class BirdFlyAggressiveAI : BirdFlyAI
             birdAttackAI.SubscribeToOnAttackInitiated(BirdAttackAI_OnAttackInitiated);
         else
             Debug.LogError($"{GetType().FullName} : Failed to find {typeof(BirdAttackAI).FullName}.");
+
+        _aggroRange = GetComponent<CircleCollider2D>();
+        if (!_aggroRange)
+            _aggroRange = gameObject.AddComponent<CircleCollider2D>();
     }
 
     public override void Initialize(Direction flyDirection, BirdFlyData birdFlyData)

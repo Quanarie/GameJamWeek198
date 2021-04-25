@@ -9,24 +9,24 @@ public class Parachute : MonoBehaviour
     /// </summary>
     
     public delegate void ParachuteDelegateOpen();
-    public event ParachuteDelegateOpen parachuteEventOpen;
+    public event ParachuteDelegateOpen ParachuteEventOpen;
 
     public delegate void ParachuteDelegateClose();
-    public event ParachuteDelegateClose parachuteEventClose;
+    public event ParachuteDelegateClose ParachuteEventClose;
 
     private bool isOpen = false;
     private void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            if (parachuteEventOpen != null && !isOpen)
+            if (ParachuteEventOpen != null && !isOpen)
             {
-                parachuteEventOpen?.Invoke();
+                ParachuteEventOpen?.Invoke();
                 isOpen = true;
             }
-            else if (parachuteEventClose != null && isOpen)
+            else if (ParachuteEventClose != null && isOpen)
             { 
-                parachuteEventClose?.Invoke();
+                ParachuteEventClose?.Invoke();
                 isOpen = false;
             }
                 

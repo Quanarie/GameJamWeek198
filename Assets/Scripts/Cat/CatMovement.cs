@@ -14,6 +14,17 @@ public class CatMovement : MonoBehaviour
     void Start()
     {
         catRB = GetComponent<Rigidbody>();
+
+        parachute.GetComponent<Parachute>().parachuteEventOpen += ParachuteOn;
+        parachute.GetComponent<Parachute>().parachuteEventClose += ParachuteOff;
+    }
+    void ParachuteOn()
+    {
+        parachute.SetActive(true);
+    }
+    void ParachuteOff()
+    {
+        parachute.SetActive(false);
     }
     void FixedUpdate()
     {

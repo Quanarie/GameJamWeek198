@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class Parachute : MonoBehaviour
 {
-    public delegate void ParachuteDelegate();
-    public event ParachuteDelegate parachuteEvent;
+    /// <summary>
+    /// This class delegates opening and closing the parachute to the cat movement script
+    /// </summary>
+    
+    public delegate void ParachuteDelegateOpen();
+    public event ParachuteDelegateOpen parachuteEventOpen;
 
+    public delegate void ParachuteDelegateClose();
+    public event ParachuteDelegateClose parachuteEventClose;
+
+    private bool isOpen = false;
     private void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            if (parachuteEvent != null)
-                parachuteEvent();
+            if (parachuteEventOpen != null && !isOpen)
+            {
+                parachuteEventOpen?.Invoke();
+                isOpen = true;
+            }
+            else if (parachuteEventClose != null && isOpen)
+            { 
+                parachuteEventClose?.Invoke();
+                isOpen = false;
+            }
+                
         }
     }
 }

@@ -1155,6 +1155,7 @@ GameObject:
   - component: {fileID: 1391015739}
   - component: {fileID: 1391015740}
   - component: {fileID: 1391015741}
+  - component: {fileID: 1391015742}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Untagged
@@ -1215,6 +1216,23 @@ MonoBehaviour:
   maxSpeed: 20
   forceValue: 100
   parachute: {fileID: 1725893589}
+--- !u!114 &1391015742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391015738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6828938cf86888d468de0e5ccc8665a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cloudPrefab: {fileID: 8181716190349254969, guid: 2d1c77fb0c2db8d4f89b0acffe40d915, type: 3}
+  leftUpPoint: {x: -20, y: -20}
+  rightDownPoint: {x: 20, y: -40}
+  _minSpawnerFrequency: 0.5
+  _maxSpawnerFrequency: 1.5
 --- !u!1 &1567282854
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,15 +14,22 @@ public class CatMovement : MonoBehaviour
     void Start()
     {
         catRB = GetComponent<Rigidbody>();
+
+        parachute.GetComponent<Parachute>().ParachuteEventOpen += ParachuteOn;
+        parachute.GetComponent<Parachute>().ParachuteEventClose += ParachuteOff;
+    }
+    void ParachuteOn()
+    {
+        parachute.SetActive(true);
+    }
+    void ParachuteOff()
+    {
+        parachute.SetActive(false);
     }
     void FixedUpdate()
     {
         UpdateHorizontalMove();
         ClampOnMaxSpeed();
-    }
-    void Update()
-    {
-        Parachute();
     }
     void UpdateHorizontalMove()
     {
@@ -39,19 +46,6 @@ public class CatMovement : MonoBehaviour
             {
                 catRB.AddForce(-forceValue, 0f, 0f);
             }
-        }
-    }
-    void Parachute()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            parachute.SetActive(!parachute.activeSelf);
-        }
-        if (parachute.activeSelf)
-        {
-            Vector3 catVel = catRB.velocity;
-            catVel.y = -4;  //speed with parachute
-            catRB.velocity = catVel;
         }
     }
     void ClampOnMaxSpeed()

@@ -79,4 +79,9 @@ public static class HelperUtility
                 eventToUnsubscribe -= callback;
         }
     }
+
+    public static float MapValue(this float value, float oldMin, float oldMax, float newMin, float newMax)
+    {
+        return newMin + (value - oldMin) * (newMax - newMin) / (oldMax - oldMin);
+    }
 }

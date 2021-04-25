@@ -1,35 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Parachute : MonoBehaviour
 {
-    /// <summary>
-    /// This class delegates opening and closing the parachute to the cat movement script
-    /// </summary>
-    
-    public delegate void ParachuteDelegateOpen();
-    public event ParachuteDelegateOpen ParachuteEventOpen;
+    [SerializeField]
+    private SpriteRenderer _parachuteRenderer;
+    private ParachuteMode _currentMode;
 
-    public delegate void ParachuteDelegateClose();
-    public event ParachuteDelegateClose ParachuteEventClose;
+    private event UnityAction<ParachuteMode> OnParachuteModeChanged;
 
-    private bool isOpen = false;
-    private void FixedUpdate()
+    private void Awake()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if(!_parachuteRenderer)
         {
-            if (ParachuteEventOpen != null && !isOpen)
-            {
-                ParachuteEventOpen?.Invoke();
-                isOpen = true;
-            }
-            else if (ParachuteEventClose != null && isOpen)
-            { 
-                ParachuteEventClose?.Invoke();
-                isOpen = false;
-            }
-                
+            _parachuteRenderer = GetComponent<SpriteRenderer>();
         }
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (_currentMode == ParachuteMode.Close)
+                _currentMode = ParachuteMode.Open;
+            else
+                _currentMode = ParachuteMode.Close;
+
+            UpdateParachuteRenderer(_currentMode);
+            OnParachuteModeChanged?.Invoke(_currentMode);
+        }
+    }
+
+    private void UpdateParachuteRenderer(ParachuteMode parachuteMode)
+    {
+        if (_parachuteRenderer)
+        {
+            if (parachuteMode == ParachuteMode.Close)
+                _parachuteRenderer.enabled = false;
+            else
+                _parachuteRenderer.enabled = true;
+        }
+        else
+            Debug.LogError($"{GetType().FullName} : Parachute Renderer is missing.");
+        
+    }
+
+    #region Event Subscription
+    public void SubscribeToOnParachuteModeChanged(UnityAction<ParachuteMode> callback) => HelperUtility.SubscribeTo(ref OnParachuteModeChanged, ref callback);
+    public void UnsubscribeFromOnParachuteModeChanged(UnityAction<ParachuteMode> callback) => HelperUtility.UnsubscribeFrom(ref OnParachuteModeChanged, ref callback);
+    #endregion
 }

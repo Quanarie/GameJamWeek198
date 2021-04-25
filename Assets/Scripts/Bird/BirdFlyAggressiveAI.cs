@@ -86,7 +86,7 @@ public class BirdFlyAggressiveAI : BirdFlyAI
     {
         if (target)
         {
-            gameObject.transform.LookAt(target);
+            //gameObject.transform.LookAt(target);
             gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, target.position, Time.deltaTime * _aggressiveFlySpeed);
         }
         else

@@ -321,10 +321,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5124448726118905560, guid: 37279e8e25a0808448ede21d34312281, type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5124448726298360960, guid: 37279e8e25a0808448ede21d34312281, type: 3}
       propertyPath: m_Name
       value: Plane

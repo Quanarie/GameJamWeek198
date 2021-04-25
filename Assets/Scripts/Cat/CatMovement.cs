@@ -24,7 +24,6 @@ public class CatMovement : MonoBehaviour
     void Start()
     {
         _mainCamera = Camera.main;
-
         if (!_parachute)
         {
             _parachute = GetComponent<Parachute>();

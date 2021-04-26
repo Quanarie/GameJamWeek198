@@ -80,9 +80,15 @@ public class BirdFlyAggressiveAI : BirdFlyAI
     private void FlyTowardsDirection(Direction flyDirection)
     {
         if (flyDirection == Direction.Left)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
             gameObject.transform.Translate(-gameObject.transform.right * Time.deltaTime * _normalFlySpeed);
+        }
         else if (flyDirection == Direction.Right)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
             gameObject.transform.Translate(gameObject.transform.right * Time.deltaTime * _normalFlySpeed);
+        }
         else
             Debug.LogError($"{GetType().FullName} : Invalid fly direction.");
     }

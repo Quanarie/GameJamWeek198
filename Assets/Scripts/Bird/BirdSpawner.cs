@@ -111,6 +111,7 @@ public class BirdSpawner : MonoBehaviour
             BirdStartData birdStartData = new BirdStartData(spawnPosition,
                                                             Quaternion.Euler(0, isSpawningAtRightSide ? 0 : 180, 0),
                                                             isSpawningAtRightSide ? Direction.Left : Direction.Right);
+            objBirdFromObjectPool.SetActive(true);
 
             BirdInitializer birdInitializer = objBirdFromObjectPool.GetComponent<BirdInitializer>();
             if (birdInitializer)

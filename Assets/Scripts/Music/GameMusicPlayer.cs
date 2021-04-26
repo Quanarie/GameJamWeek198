@@ -15,21 +15,30 @@ public class GameMusicPlayer : MonoBehaviour
     [SerializeField]
     private string _gameplayMusicID ="event:/GamePlayMusic";
 
+    [SerializeField]
+    private string _startMusicID;
+
+    [SerializeField]
+    private float _volume;
+
     private EventInstance _eventInstance;
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            PlayMusic(_gameplayMusicID);
-        }else if (Input.GetKey(KeyCode.A))
-        {
-            PlayMusic(_introMusicID);
-        }
+        Debug.LogError($"{GetType().FullName} : Remove this part of the code after testing.");
+        PlayMusic(_startMusicID);
+    }
+
+    public void SetVolume(float volume)
+    {
+        if (_eventInstance.isValid())
+            _eventInstance.setVolume(volume);
+
+        _volume = volume;
     }
     public void PlayMusic(string eventID)
     {
@@ -41,6 +50,7 @@ public class GameMusicPlayer : MonoBehaviour
 
         _eventInstance = RuntimeManager.CreateInstance(eventID);
         _eventInstance.start();
-        _eventInstance.setVolume(100);
+
+        _eventInstance.setVolume(_volume);
     }
 }

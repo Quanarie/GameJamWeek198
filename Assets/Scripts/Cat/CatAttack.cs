@@ -32,16 +32,26 @@ public class CatAttack : MonoBehaviour
     {
         if (_parachuteMode == ParachuteMode.Close && Input.GetKey(KeyCode.S))
         {
-            GameObject target = FindClosestBirdUnderCat();
+            GameObject target = FindClosestBirdUnderCatWithinRange();
             if (target != null)
             {
-                Destroy(target);
-                
-                //add health
+                if (target.tag == "Bird")
+                {
+                    Destroy(target);
+                    //delete from pool
+                    //add health
+                }
+                else if (target.tag == "BirdAggressive")
+                {
+                    if (target.GetComponent<BirdFlyAggressiveAI>().GetCurrentFlyMode() == FlyMode.Attack)
+                    {
+                        //repel an attack
+                    }
+                }
             }
         }
     }
-    GameObject FindClosestBirdUnderCat()
+    GameObject FindClosestBirdUnderCatWithinRange()
     {
         GameObject[] birds = GameObject.FindGameObjectsWithTag("Bird");
         GameObject closestBird = null;

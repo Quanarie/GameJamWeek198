@@ -241,7 +241,7 @@ MonoBehaviour:
   _spawnerFrequency: 0
   _minSpawnDistanceFromSides: 0
   _timePassedSinceLastSpawn: 0
-  _prefabBird: {fileID: 3564792325737383262, guid: 9cd1c162c5a2ed6438b24dfe420eab69, type: 3}
+  _prefabBird: {fileID: 1748879984246902423, guid: 0898b155265e1c942afd33a25716a798, type: 3}
   _isSpawningEnabled: 1
 --- !u!4 &135769637
 Transform:
@@ -1334,8 +1334,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1556500792, guid: de09e1d9cadef4048a4f4c3b528a035a, type: 3}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1556500792, guid: de09e1d9cadef4048a4f4c3b528a035a, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1556500792, guid: de09e1d9cadef4048a4f4c3b528a035a, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1795753275378079540, guid: de09e1d9cadef4048a4f4c3b528a035a, type: 3}
       propertyPath: m_Name

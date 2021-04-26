@@ -8,4 +8,8 @@ public class OptionsMenuScript : MonoBehaviour
     {
         Screen.fullScreen = isFullScreen;
     }
+    public void SetVolume(float volume)
+    {
+        //waiting for the lvl scene
+    }
 }

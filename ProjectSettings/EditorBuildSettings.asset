@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: d063a42e942743b41bb9736b308cd634
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Scene_0.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/TestScenes/CatAttackTesting/CatAttackTest.unity
+    guid: a36ae22f63292fb428472a2b1550bb08
   m_configObjects: {}

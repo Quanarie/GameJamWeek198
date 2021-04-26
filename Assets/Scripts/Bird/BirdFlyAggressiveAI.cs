@@ -91,7 +91,11 @@ public class BirdFlyAggressiveAI : BirdFlyAI
     {
         if (target)
         {
-            //gameObject.transform.LookAt(target);
+            if (target.position.x > gameObject.transform.position.x)
+                gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+            else
+                gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+
             gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, target.position, Time.deltaTime * _aggressiveFlySpeed);
         }
         else

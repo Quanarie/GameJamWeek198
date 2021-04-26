@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1604052892167353397}
   - component: {fileID: 3319368648890196513}
   - component: {fileID: -7676020275411703157}
+  - component: {fileID: 167891874696974207}
   m_Layer: 0
   m_Name: Cloud
   m_TagString: ThunderCloud
@@ -109,4 +110,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65942673b0bd19f4fa3aaadc7e503d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloudSpeed: 2
+  cloudSpeed: 8
+  _player: {fileID: 0}
+  _mainCamera: {fileID: 0}
+--- !u!114 &167891874696974207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604052892167353396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3813a5ce13b33c458dbbb369d7be986, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxYCoordinate: 0

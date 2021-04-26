@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - ThunderCloud
+  - BirdAggressive
+  - Undefined
+  - Bird
   layers:
   - Default
   - TransparentFX

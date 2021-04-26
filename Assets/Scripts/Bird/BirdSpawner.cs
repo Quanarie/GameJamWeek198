@@ -17,7 +17,7 @@ public class BirdSpawner : MonoBehaviour
     private Camera _mainCamera;
 
     [SerializeField]
-    private float _minSpawnerFrequency, _maxSpawnerFrequency, _spawnerFrequencyIncreaser, _spawnerFrequency;
+    private float _minSpawnerFrequency, _maxSpawnerFrequency, _spawnerFrequency, _minSpawnDistanceFromSides;
 
     /// <summary>
     /// Keeps track of time since last spawn
@@ -159,7 +159,7 @@ public class BirdSpawner : MonoBehaviour
     {
         bool isRight = spawnDirection == Direction.Right;
         if(_mainCamera)
-            return _mainCamera.ViewportToWorldPoint(new Vector2(isRight ? 1 : 0, UnityEngine.Random.Range(0, (float)1)));
+            return _mainCamera.ViewportToWorldPoint(new Vector2(isRight ? 1 - _minSpawnDistanceFromSides : 0 + _minSpawnDistanceFromSides, UnityEngine.Random.Range(0, (float)1)));
         else
         {
             Debug.LogError($"{GetType().FullName} : Failed to find MainCamera.");

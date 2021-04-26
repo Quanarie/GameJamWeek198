@@ -487,10 +487,10 @@ MonoBehaviour:
   _mainCamera: {fileID: 0}
   _minSpawnerFrequency: 2
   _maxSpawnerFrequency: 1
-  _spawnerFrequencyIncreaser: 0
   _spawnerFrequency: 0
+  _minSpawnDistanceFromSides: 0
   _timePassedSinceLastSpawn: 0
-  _prefabBird: {fileID: 7076865662312989447, guid: 0898b155265e1c942afd33a25716a798, type: 3}
+  _prefabBird: {fileID: 3564792325737383262, guid: fc65b48dd01f4804ca48151c60f69336, type: 3}
   _isSpawningEnabled: 1
 --- !u!4 &537094790
 Transform:

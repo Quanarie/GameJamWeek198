@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 1748879984246902409}
   m_Layer: 0
   m_Name: BirdAggressive
-  m_TagString: Untagged
+  m_TagString: BirdAggressive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
       NormalFlySpeed: 5
       AggressiveFlySpeed: 6
       MinDistanceFromTarget: 1
-      AggroRange: 5
+      AggroRange: 1
     BirdAttackData:
       AttackRange: 1
       AttackDamage: 1

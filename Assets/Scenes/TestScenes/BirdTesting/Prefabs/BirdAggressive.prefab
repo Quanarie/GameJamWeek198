@@ -155,7 +155,7 @@ MonoBehaviour:
       NormalFlySpeed: 5
       AggressiveFlySpeed: 6
       MinDistanceFromTarget: 1
-      AggroRange: 5
+      AggroRange: 1
     BirdAttackData:
       AttackRange: 1
       AttackDamage: 1

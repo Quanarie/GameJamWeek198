@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parachuteRenderer: {fileID: 1795753274706861844}
+  _isAttackInitiated: 0
 --- !u!1 &1795753275378079540
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,8 +111,10 @@ GameObject:
   - component: {fileID: 1795753275378079544}
   - component: {fileID: 558753305449003213}
   - component: {fileID: 1556500792}
+  - component: {fileID: 524271393}
+  - component: {fileID: 524271394}
   m_Layer: 0
-  m_Name: Cat
+  m_Name: CatFinal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -256,3 +259,37 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1.33}
   m_Direction: 0
+--- !u!58 &524271393
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795753275378079540}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.665
+--- !u!114 &524271394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795753275378079540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb79aadb3f03c24093fe6be4f2c6b34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackRadius: 1
+  _attackDamage: 1
+  _attackRangeCollider: {fileID: 524271393}
+  _parachute: {fileID: 0}
+  _attackDuraction: 1
+  _isAbleToAttemptToAttack: 1

@@ -9,6 +9,9 @@ public class CameraMovement : MonoBehaviour
     private float _expectedYAxisForCamera;
 
     [SerializeField]
+    private float _panningSpeed;
+
+    [SerializeField]
     private Camera _mainCamera;
     private void Start()
     {

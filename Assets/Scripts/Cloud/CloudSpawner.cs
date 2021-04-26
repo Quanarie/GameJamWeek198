@@ -53,10 +53,9 @@ public class CloudSpawner : MonoBehaviour
     {
         GameObject cloud = Instantiate(cloudPrefab);
         cloud.transform.SetParent(gameObject.transform);
-        cloud.transform.position = GetRandomSpawnRangeOnVerticalAxis();
+        cloud.transform.position = GetRandomSpawnRangeOnVerticalAxis() - Vector2.up * 5;
         Clouds.Add(cloud);
     }
 
     private Vector2 GetRandomSpawnRangeOnVerticalAxis() => _mainCamera.ViewportToWorldPoint(new Vector2(UnityEngine.Random.Range(0 + _minDistanceFromSides, (float)1 - _minDistanceFromSides),0));
-
 }

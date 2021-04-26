@@ -619,8 +619,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb79aadb3f03c24093fe6be4f2c6b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRadius: 2
+  _attackRadius: 0
+  _attackDamage: 0
+  _attackRangeCollider: {fileID: 0}
   _parachute: {fileID: 0}
+  _attackDuraction: 0
+  _isAbleToAttemptToAttack: 0
 --- !u!1 &638840451
 GameObject:
   m_ObjectHideFlags: 0

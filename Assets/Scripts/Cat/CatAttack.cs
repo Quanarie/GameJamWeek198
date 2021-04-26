@@ -6,7 +6,6 @@ public class CatAttack : MonoBehaviour
 {
     [Header("Set in Inspector")]
     public float attackRadius;
-    public LayerMask birdLayerMask;
 
     [SerializeField]
     private Parachute _parachute;
@@ -37,7 +36,7 @@ public class CatAttack : MonoBehaviour
             {
                 if (target.tag == "Bird")
                 {
-                    Destroy(target);
+                    target.GetComponent<BirdHealth>().ReduceHealth(100);
                     //delete from pool
                     //add health
                 }

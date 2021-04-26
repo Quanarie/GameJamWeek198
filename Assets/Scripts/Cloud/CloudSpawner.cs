@@ -10,10 +10,15 @@ public class CloudSpawner : MonoBehaviour
     
     [Header("Set in Inspector")]
     public GameObject cloudPrefab;
-    public Vector2 leftUpPoint;    // this coordinates limit the area where clouds will spawn (relatively to the connected object) (this area should be under the camera)
-    public Vector2 rightDownPoint;
+
     public float _minSpawnerFrequency, _maxSpawnerFrequency;
+
+    [SerializeField]
+    private float _minDistanceFromSides;
+
     public List<GameObject> Clouds;
+
+    public Camera _mainCamera;
 
     public delegate void SpawnDelegate();
     public event SpawnDelegate SpawnEvent;
@@ -24,6 +29,7 @@ public class CloudSpawner : MonoBehaviour
 
     private void Start()
     {
+        _mainCamera = Camera.main;
         Clouds = new List<GameObject>();
         _timePassedSinceLastSpawn = 0;
         UpdateSpawnerFrequency();
@@ -47,10 +53,10 @@ public class CloudSpawner : MonoBehaviour
     {
         GameObject cloud = Instantiate(cloudPrefab);
         cloud.transform.SetParent(gameObject.transform);
-        Vector3 pos = Vector3.zero;
-        pos.x = Random.Range(transform.position.x + leftUpPoint.x, transform.position.x + rightDownPoint.x);
-        pos.y = Random.Range(transform.position.y + rightDownPoint.y, transform.position.y + leftUpPoint.y);
-        cloud.transform.position = pos;
+        cloud.transform.position = GetRandomSpawnRangeOnVerticalAxis();
         Clouds.Add(cloud);
     }
+
+    private Vector2 GetRandomSpawnRangeOnVerticalAxis() => _mainCamera.ViewportToWorldPoint(new Vector2(UnityEngine.Random.Range(0 + _minDistanceFromSides, (float)1 - _minDistanceFromSides),0));
+
 }

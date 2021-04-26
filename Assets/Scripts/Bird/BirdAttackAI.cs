@@ -102,7 +102,8 @@ public class BirdAttackAI : MonoBehaviour
     {
         if(Vector2.Distance(_target.transform.position, gameObject.transform.position) <= _attackRange)
         {
-            Debug.LogError($"{GetType().FullName} : Attack missing.");
+            CatHealth catHealth = _target.GetComponent<CatHealth>();
+            catHealth.ReduceHealth(_attackDamage);
         }
 
         Debug.LogError($"{GetType().FullName} : Animation missing.");

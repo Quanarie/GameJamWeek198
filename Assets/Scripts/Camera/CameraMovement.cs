@@ -23,6 +23,9 @@ public class CameraMovement : MonoBehaviour
 
     private IEnumerator PanCameraDown()
     {
-        while()
+        while(_mainCamera.transform.position.y > _expectedYAxisForCamera)
+        {
+            yield return null;
+        }
     }
 }

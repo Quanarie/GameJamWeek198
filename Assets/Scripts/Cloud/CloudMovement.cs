@@ -38,11 +38,11 @@ public class CloudMovement : MonoBehaviour
     {
         if (_player)
         {
-            Vector2 bottomLeftCorner = _mainCamera.ViewportToWorldPoint(new Vector2(0, 1));
-            Vector2 topRightCorner = _mainCamera.ViewportToWorldPoint(new Vector2(1, 0));
+            Vector2 topLeftCorner = _mainCamera.ViewportToWorldPoint(new Vector2(0, 1));
+            Vector2 bottomRightCorner = _mainCamera.ViewportToWorldPoint(new Vector2(1, 0));
 
-            float maxY = bottomLeftCorner.y;
-            float minY = topRightCorner.y;
+            float maxY = topLeftCorner.y;
+            float minY = bottomRightCorner.y;
 
             float remappedValue = _player.transform.position.y.MapValue(minY, maxY, 0, 1);
             return 1 - remappedValue;

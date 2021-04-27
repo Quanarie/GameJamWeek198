@@ -16,8 +16,11 @@ public class VolumeManager : MonoBehaviour
 
     private void Awake()
     {
-        Current = this;
-        DontDestroyOnLoad(gameObject);
+        if (!Current)
+        {
+            Current = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
     public void SetSFX(float volume)
     {

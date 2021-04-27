@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class GameMusicPlayer : MonoBehaviour
 {
+    public static GameMusicPlayer Current;
+
     [SerializeField]
     private string _mainmenuMusicID;
 
@@ -27,7 +29,11 @@ public class GameMusicPlayer : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (!Current)
+        {
+            Current = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     private void Start()

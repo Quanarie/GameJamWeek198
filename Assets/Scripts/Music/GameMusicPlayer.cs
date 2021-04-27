@@ -10,16 +10,10 @@ public class GameMusicPlayer : MonoBehaviour
     public static GameMusicPlayer Current;
 
     [SerializeField]
-    private string _mainmenuMusicID;
-
-    [SerializeField]
-    private string _introMusicID = "event:/IntroMusic";
+    private string _mainmenuMusicID= "event:/IntroMusic";
 
     [SerializeField]
     private string _gameplayMusicID ="event:/GamePlayMusic";
-
-    [SerializeField]
-    private string _startMusicID;
 
     [SerializeField]
     private float _volume;
@@ -46,7 +40,17 @@ public class GameMusicPlayer : MonoBehaviour
         else
             Debug.LogError($"Failed to find VolumeManager");
 
-        PlayMusic(_startMusicID);
+        PlayMusic(_mainmenuMusicID);
+
+        GameStateManager.Current.SubscribeToOnGameStateChanged(GameStateManager_OnGameStateChanged);
+    }
+
+    private void GameStateManager_OnGameStateChanged(GameState gameState)
+    {
+        if (gameState == GameState.MainMenu)
+            PlayMusic(_mainmenuMusicID);
+        else if (gameState == GameState.Play)
+            PlayMusic(_gameplayMusicID);
     }
 
     public void SetVolume(float volume)

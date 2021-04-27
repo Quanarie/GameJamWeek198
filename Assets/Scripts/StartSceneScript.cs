@@ -16,6 +16,7 @@ public class StartSceneScript : MonoBehaviour
     IEnumerator EndAnimation()
     {
         yield return new WaitForSeconds(3f);    //sorry for this
+        GameStateManager.Current.ChangeGameState(GameState.Play);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

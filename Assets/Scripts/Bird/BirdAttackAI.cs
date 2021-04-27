@@ -90,8 +90,10 @@ public class BirdAttackAI : MonoBehaviour
         }
 
         AttackTarget();
-        
+
         _isAbleToAttemptToAttack = true;
+        yield return new WaitForSeconds(1);
+
         OnAttackInitiated?.Invoke(false);
     }
 

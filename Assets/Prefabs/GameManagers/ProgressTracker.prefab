@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentProgress: 0
-  _progressRequired: 300
+  _progressRequired: 200
   _mainCamera: {fileID: 0}
   _progressMultiplier: 3
   _isDestinationReached: 0

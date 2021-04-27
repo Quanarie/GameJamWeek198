@@ -15,8 +15,8 @@ public class ChangeSliderValues : MonoBehaviour
         VolumeManager volumeManager = GetComponent<VolumeManager>();
         if (volumeManager)
         {
-            volumeManager.SubscribeToChangeSFX(SFXUpdate);
-            volumeManager.SubscribeToChangeMusic(MusicUpdate);
+            SFXUpdate(volumeManager.SFX);
+            MusicUpdate(volumeManager.Music);
         }
         else
         {

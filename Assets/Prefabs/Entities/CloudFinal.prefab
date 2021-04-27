@@ -1,5 +1,39 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3400196426845699129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6272817622420901825}
+  m_Layer: 0
+  m_Name: Lightnings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6272817622420901825
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3400196426845699129}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2320072906537905512}
+  - {fileID: 299763534123936243}
+  - {fileID: 8003850572323689820}
+  - {fileID: 2465475016588850505}
+  m_Father: {fileID: 7554195872583981311}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4220664537640825582
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,11 +59,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4220664537640825582}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.167, y: -0.008, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children: []
-  m_Father: {fileID: 7554195872583981311}
+  m_Father: {fileID: 6272817622420901825}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6527854487275711663
@@ -127,11 +161,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5019813524934081345}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.169, y: -0.069, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 0.8000001, y: 0.8000001, z: 0.8}
   m_Children: []
-  m_Father: {fileID: 7554195872583981311}
+  m_Father: {fileID: 6272817622420901825}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3296260842162795136
@@ -229,11 +263,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5995472781169195665}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.101, y: -0.06, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children: []
-  m_Father: {fileID: 7554195872583981311}
+  m_Father: {fileID: 6272817622420901825}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7692704145643953682
@@ -322,6 +356,7 @@ GameObject:
   - component: {fileID: 2430286507225173923}
   - component: {fileID: -9042076185038518613}
   - component: {fileID: 4054257475337966467}
+  - component: {fileID: 2457736157898723179}
   m_Layer: 0
   m_Name: CloudFinal
   m_TagString: ThunderCloud
@@ -340,10 +375,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
-  - {fileID: 2320072906537905512}
-  - {fileID: 299763534123936243}
-  - {fileID: 8003850572323689820}
-  - {fileID: 2465475016588850505}
+  - {fileID: 6272817622420901825}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -498,7 +530,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _volume: 0.03
-  _cloudSound: 
+  _cloudIdleSound: event:/CloudIdle
+  _cloudAttackSound: event:/CloudLightning
+  _volumeIdle: 0.03
+--- !u!114 &2457736157898723179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7554195872583981305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab25f23f50d61614d8a9833f2a860017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objThunder: {fileID: 3400196426845699129}
+  _cloudAttack: {fileID: -9042076185038518613}
 --- !u!1 &8545923887414821120
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,11 +572,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8545923887414821120}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.288, y: -0.008, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children: []
-  m_Father: {fileID: 7554195872583981311}
+  m_Father: {fileID: 6272817622420901825}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4108812532052607963

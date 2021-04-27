@@ -5,16 +5,24 @@ using UnityEngine.Events;
 
 public class VolumeManager : MonoBehaviour
 {
+    public static VolumeManager Current;
+
     private event UnityAction<float> ChangeSFX;
 
     private event UnityAction<float> ChangeMusic;
 
+    [SerializeField]
     private float musicVolume;
+    [SerializeField]
     private float SFXVolume;
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (!Current)
+        {
+            Current = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
     public void SetSFX(float volume)
     {

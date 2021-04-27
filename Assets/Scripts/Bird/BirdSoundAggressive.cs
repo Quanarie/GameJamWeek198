@@ -34,8 +34,7 @@ public class BirdSoundAggressive : BirdSound
         if (isAttackInitiated)
         {
             _isNormalSoundActivated = false;
-            Debug.LogError($"{GetType().FullName} : Uncomment the below code when there's a sound for attack.");
-            //PlaySound(_attackSoundID);
+            PlaySound(_attackSoundID);
         }
         else
         {

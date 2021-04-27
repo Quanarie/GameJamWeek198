@@ -43,8 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8744aee962383b49a513e675ead8cd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainmenuMusicID: 
-  _introMusicID: event:/IntroMusic
+  _mainmenuMusicID: event:/IntroMusic
   _gameplayMusicID: event:/GamePlayMusic
-  _startMusicID: event:/GamePlayMusic
   _volume: 0.03

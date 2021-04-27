@@ -1,5 +1,6 @@
 using FMOD.Studio;
 using FMODUnity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,12 @@ public abstract class SoundPlayer : MonoBehaviour
 
     private void Start()
     {
-        Debug.LogError($"Connect to volume manager and get volume");
+        if(VolumeManager.Current)
+        {
+            _volume = VolumeManager.Current.SFX;
+            VolumeManager.Current.SubscribeToChangeSFX(VolumeManager_OnChangeSFX);
+        }else
+            Debug.LogError($"Failed to find VolumeManager");
     }
     protected void PlaySound(string eventID)
     {
@@ -52,6 +58,13 @@ public abstract class SoundPlayer : MonoBehaviour
     }
     private void OnDestroy()
     {
-        Debug.LogError($"Unsubscribe From VolumeManager.");
+        if (VolumeManager.Current)
+        {
+            VolumeManager.Current.UnsubscribeFromChangeSFX(VolumeManager_OnChangeSFX);
+        }
+        else
+            Debug.LogError($"Failed to find VolumeManager");
     }
+
+    private void VolumeManager_OnChangeSFX(float volume) => UpdateVolume(volume);
 }

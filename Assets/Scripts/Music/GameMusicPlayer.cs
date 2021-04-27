@@ -1,5 +1,6 @@
 using FMOD.Studio;
 using FMODUnity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,8 @@ public class GameMusicPlayer : MonoBehaviour
     private float _volume;
 
     private EventInstance _eventInstance;
+
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -29,7 +32,14 @@ public class GameMusicPlayer : MonoBehaviour
 
     private void Start()
     {
-        Debug.LogError($"{GetType().FullName} : Remove this part of the code after testing.");
+        if (VolumeManager.Current)
+        {
+            _volume = VolumeManager.Current.Music;
+            VolumeManager.Current.SubscribeToChangeMusic(VolumeManager_OnChangeMusicVolume);
+        }
+        else
+            Debug.LogError($"Failed to find VolumeManager");
+
         PlayMusic(_startMusicID);
     }
 
@@ -53,4 +63,6 @@ public class GameMusicPlayer : MonoBehaviour
 
         _eventInstance.setVolume(_volume);
     }
+
+    private void VolumeManager_OnChangeMusicVolume(float volume) => SetVolume(volume);
 }

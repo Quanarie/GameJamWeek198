@@ -29,6 +29,14 @@ public class CloudSound : SoundPlayer
         }
         else
             Debug.LogError($"{GetType().FullName} : Failed to find Cloud Attack.");
+
+        if (VolumeManager.Current)
+        {
+            _volumeIdle = VolumeManager.Current.SFX;
+            VolumeManager.Current.SubscribeToChangeSFX(VolumeManager_OnChangeSFX);
+        }
+        else
+            Debug.LogError($"Failed to find VolumeManager");
     }
 
     private void PlayCloudIdleSound()
@@ -76,6 +84,13 @@ public class CloudSound : SoundPlayer
     }
     private void OnDestroy()
     {
-        Debug.LogError($"Unsubscribe From VolumeManager.");
+        if (VolumeManager.Current)
+        {
+            VolumeManager.Current.UnsubscribeFromChangeSFX(VolumeManager_OnChangeSFX);
+        }
+        else
+            Debug.LogError($"Failed to find VolumeManager");
     }
+
+    private void VolumeManager_OnChangeSFX(float volume) => UpdateVolume(volume);
 }

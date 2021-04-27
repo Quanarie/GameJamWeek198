@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8407418759357499334}
   - component: {fileID: 8407418759357499385}
   m_Layer: 0
-  m_Name: CloudSpawner
+  m_Name: CloudSpawnerFinal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cloudPrefab: {fileID: 7554195872583981305, guid: b8a0a77a06df608499f816e88bc35992, type: 3}
-  _minSpawnerFrequency: 0.2
-  _maxSpawnerFrequency: 1
+  _minSpawnerFrequency: 15
+  _maxSpawnerFrequency: 10
   _minDistanceFromSides: 0.2
   Clouds: []
   _mainCamera: {fileID: 0}

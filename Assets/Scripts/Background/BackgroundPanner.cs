@@ -36,7 +36,11 @@ public class BackgroundPanner : MonoBehaviour
             Debug.LogError($"{GetType().FullName} : Failed to find Player.");
 
         _mainCamera = Camera.main;
+
+        PlayerProgressTracker.Current.SubscribeToOnDestinationReached(PlayerProgressTracker_OnDestinationReached);
     }
+
+    
 
     private void Update()
     {
@@ -68,4 +72,5 @@ public class BackgroundPanner : MonoBehaviour
             return 0;
         }
     }
+    private void PlayerProgressTracker_OnDestinationReached() => EnablePanning(false);
 }

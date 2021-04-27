@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8588623209548964171}
   - component: {fileID: 4001115671616771918}
   - component: {fileID: -9110885081982250055}
+  - component: {fileID: 2876722542061298738}
   m_Layer: 0
   m_Name: BirdFinal
   m_TagString: Untagged
@@ -134,6 +135,7 @@ MonoBehaviour:
       MaxHealth: 1
   _birdFlyAI: {fileID: 0}
   _birdHealth: {fileID: 0}
+  _birdSound: {fileID: 0}
 --- !u!114 &8761998856056118798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,3 +215,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _birdType: 0
+--- !u!114 &2876722542061298738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918503491706139394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256e5386427f006469d6367f333ae8c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _volume: 0.03
+  _isVisibleInCamera: 0
+  _normalBirdSoundID: event:/SmallBird
+  _intervalBetweenNormalSounds: 2
+  _timePassedSinceLastNormalSound: 0

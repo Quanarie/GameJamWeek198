@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 0}
-  _minSpawnerFrequency: 1
-  _maxSpawnerFrequency: 5
+  _minSpawnerFrequency: 15
+  _maxSpawnerFrequency: 10
   _spawnerFrequency: 0
   _minSpawnDistanceFromSides: 0
   _timePassedSinceLastSpawn: 0

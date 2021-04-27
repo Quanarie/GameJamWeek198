@@ -32,6 +32,9 @@ public class BirdHealth : MonoBehaviour
 
         if(_currentHealth == 0)
         {
+            //Probably a dirty way to get a kill counter. I will change this when I get time
+            PlayerBirdKillTracker.Current.AddKillCount(1);
+            if(PlayerBirdKillTracker.Current)
             OnDeath?.Invoke(true);
         }
     }

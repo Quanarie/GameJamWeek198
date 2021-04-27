@@ -9,7 +9,9 @@ public class CatMovement : MonoBehaviour
     private float _maxY, _maxX, _minY, _minX;
 
     [SerializeField]
-    private float _maxRiseSpeed, _maxFallSpeed, _maxSlideSpeed;
+    private float _maxRiseSpeedBasedOnCameraView, _maxFallSpeedBasedOnCameraView, _maxSlideSpeed;
+    [SerializeField]
+    private float _fallSpeedUponDestinationReached, _maxFallSpeedUponDestinationReachedWithParachute, _maxFallSpeedUponDestinationReachedWithoutParachute, _speedIncreaseForFallSpeedUponDestinationReached;
     [SerializeField]
     private float _minDistanceFromBottom, _minDistanceFromTop, _minDistanceFromSide;
 
@@ -20,6 +22,12 @@ public class CatMovement : MonoBehaviour
     private Camera _mainCamera;
 
     private Rigidbody2D _catRB;
+
+    [SerializeField]
+    private bool _isDestinationReached;
+
+    [SerializeField]
+    private bool _isMovementEnabled;
 
     void Start()
     {
@@ -39,17 +47,30 @@ public class CatMovement : MonoBehaviour
 
         FindMinMaxValuesOfAxisWithinCameraView();
         _catRB = GetComponent<Rigidbody2D>();
+
+        PlayerProgressTracker.Current.SubscribeToOnDestinationReached(PlayerProgressTracker_OnDestinationReached);
+        LandingAreaManager.Current.SubscribeToOnLandingInWinArea(LandingAreaManager_OnLandingWinArea);
     }
 
     private void Update()
     {
-        FindMinMaxValuesOfAxisWithinCameraView();
-        if (_parachuteMode == ParachuteMode.Open)
-            Rise();
-        else
-            FreeFall();
+        if (_isMovementEnabled)
+        {
+            if (!_isDestinationReached)
+            {
+                FindMinMaxValuesOfAxisWithinCameraView();
+                if (_parachuteMode == ParachuteMode.Open)
+                    RiseBasedOnCameraView();
+                else
+                    FreeFallBasedOnCameraView();
+            }
+            else
+            {
+                FreeFall();
+            }
 
-        HorizontalMove();
+            HorizontalMove();
+        }
     }
 
     private void HorizontalMove()
@@ -82,25 +103,43 @@ public class CatMovement : MonoBehaviour
     private float GetFreeFallSpeed()
     {
         float fallspeed = gameObject.transform.position.y.MapValue(_minY, _maxY, 0, 1);
-        return (fallspeed - _minDistanceFromBottom) * _maxFallSpeed;
+        return (fallspeed - _minDistanceFromBottom) * _maxFallSpeedBasedOnCameraView;
     }
     private float GetRiseSpeed()
     {
         float fallspeed = gameObject.transform.position.y.MapValue(_minY, _maxY, 0, 1);
         fallspeed += _minDistanceFromTop;
-        return (1 - fallspeed) * _maxRiseSpeed;
+        return (1 - fallspeed) * _maxRiseSpeedBasedOnCameraView;
     }
 
-    private void Rise()
+    private void RiseBasedOnCameraView()
     {
         Vector3 speed = new Vector3(0, Time.deltaTime * GetRiseSpeed(), 0);
         gameObject.transform.position += speed;
     }
-    private void FreeFall()
+    private void FreeFallBasedOnCameraView()
     {
         Vector3 speed = new Vector3(0, Time.deltaTime * GetFreeFallSpeed(), 0);
         gameObject.transform.position -= speed;
     }
 
+    private void FreeFall()
+    {
+        if(_parachuteMode == ParachuteMode.Close)
+        {
+            _fallSpeedUponDestinationReached = Mathf.Clamp(_fallSpeedUponDestinationReached + Time.deltaTime * _maxFallSpeedUponDestinationReachedWithoutParachute , 0, _maxFallSpeedUponDestinationReachedWithoutParachute);
+        }
+        else
+        {
+            _fallSpeedUponDestinationReached = Mathf.Clamp(_fallSpeedUponDestinationReached + Time.deltaTime * _maxFallSpeedUponDestinationReachedWithoutParachute, 0, _maxFallSpeedUponDestinationReachedWithParachute);
+        }
+
+        Vector3 newPosition = gameObject.transform.position;
+        newPosition.y -= _fallSpeedUponDestinationReached;
+
+        gameObject.transform.position = newPosition;
+    }
     private void Parachute_OnParachuteModeChanged(ParachuteMode parachuteMode) => _parachuteMode = parachuteMode;
+    private void PlayerProgressTracker_OnDestinationReached() => _isDestinationReached = true;
+    private void LandingAreaManager_OnLandingWinArea(bool isWon) => _isMovementEnabled = false;
 }

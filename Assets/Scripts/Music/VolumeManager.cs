@@ -11,7 +11,9 @@ public class VolumeManager : MonoBehaviour
 
     private event UnityAction<float> ChangeMusic;
 
+    [SerializeField]
     private float musicVolume;
+    [SerializeField]
     private float SFXVolume;
 
     private void Awake()

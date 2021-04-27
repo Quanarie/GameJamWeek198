@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CloudAttack : MonoBehaviour
 {
     [SerializeField]
     private float _attackDamage;
+
+    private UnityAction OnCloudAttack;
+
 
     //private void OnCollisionEnter2D(Collision2D collision)
     //{
@@ -25,9 +29,14 @@ public class CloudAttack : MonoBehaviour
     {
         if (PlayerIdentifier.Current.gameObject == collision.gameObject)
         {
+            OnCloudAttack?.Invoke();
             CatHealth catHealth = PlayerIdentifier.Current.GetComponent<CatHealth>();
             catHealth.ReduceHealth(_attackDamage);
-            Debug.LogError($"Trigger");
         }
     }
+
+    #region Event Subscription
+    public void SubscribeToOnCloudAttack(UnityAction callback) => HelperUtility.SubscribeTo(ref OnCloudAttack, ref callback);
+    public void UnsubscribeFromOnCloudAttack(UnityAction callback) => HelperUtility.UnsubscribeFrom(ref OnCloudAttack, ref callback);
+    #endregion
 }

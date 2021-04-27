@@ -232,3 +232,5 @@ MonoBehaviour:
   _normalBirdSoundID: event:/SmallBird
   _intervalBetweenNormalSounds: 2
   _timePassedSinceLastNormalSound: 0
+  _deadSoundID: event:/CatKillBird
+  _birdHealth: {fileID: 0}

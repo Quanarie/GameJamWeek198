@@ -274,4 +274,4 @@ MonoBehaviour:
   _intervalBetweenNormalSounds: 4
   _timePassedSinceLastNormalSound: 0
   _isNormalSoundActivated: 0
-  _attackSoundID: 
+  _attackSoundID: event:/BigBirdAttack

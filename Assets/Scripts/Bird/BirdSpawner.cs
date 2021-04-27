@@ -163,7 +163,7 @@ public class BirdSpawner : MonoBehaviour
     {
         bool isRight = spawnDirection == Direction.Right;
         if(_mainCamera)
-            return _mainCamera.ViewportToWorldPoint(new Vector2(isRight ? 1 - _minSpawnDistanceFromSides : 0 + _minSpawnDistanceFromSides, UnityEngine.Random.Range(0, (float)1)));
+            return _mainCamera.ViewportToWorldPoint(new Vector2(isRight ? 1 - _minSpawnDistanceFromSides : 0 + _minSpawnDistanceFromSides, UnityEngine.Random.Range(0, (float)0.6f)));
         else
         {
             Debug.LogError($"{GetType().FullName} : Failed to find MainCamera.");

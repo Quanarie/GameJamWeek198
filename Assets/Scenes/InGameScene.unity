@@ -176,11 +176,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5078166893163735019, guid: ccc13e44edc807e4bb157abfdc2da5ec, type: 3}
       propertyPath: _maxSpawnerFrequency
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5078166893163735019, guid: ccc13e44edc807e4bb157abfdc2da5ec, type: 3}
       propertyPath: _minSpawnerFrequency
-      value: 3
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5078166893163735020, guid: ccc13e44edc807e4bb157abfdc2da5ec, type: 3}
       propertyPath: m_Name
@@ -776,7 +776,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6181270755957934200, guid: 5a80b470329e0e74e9258d5f1bfefcc9, type: 3}
       propertyPath: _progressRequired
-      value: 15
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 6181270755957934201, guid: 5a80b470329e0e74e9258d5f1bfefcc9, type: 3}
       propertyPath: m_Name
@@ -853,6 +853,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4628786872738051568, guid: 1ad8696c81d7ae443a73ba49ff3c2f85, type: 3}
+      propertyPath: _maxSpawnerFrequency
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4628786872738051569, guid: 1ad8696c81d7ae443a73ba49ff3c2f85, type: 3}
       propertyPath: m_RootOrder
       value: 2

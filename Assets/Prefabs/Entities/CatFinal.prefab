@@ -224,7 +224,7 @@ MonoBehaviour:
   _maxSlideSpeed: 2
   _fallSpeedUponDestinationReached: 0
   _maxFallSpeedUponDestinationReachedWithParachute: 0.02
-  _maxFallSpeedUponDestinationReachedWithoutParachute: 0.05
+  _maxFallSpeedUponDestinationReachedWithoutParachute: 0.03
   _speedIncreaseForFallSpeedUponDestinationReached: 1
   _minDistanceFromBottom: 0.1
   _minDistanceFromTop: 0.3
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9071d9cce2291934898c71fd823abeea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 9
+  _maxHealth: 100
   _currentHealth: 0
 --- !u!114 &-2094542080794632423
 MonoBehaviour:

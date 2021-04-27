@@ -40,6 +40,26 @@ public abstract class BirdFlyAI : MonoBehaviour, IBirdFlyAIInitializer
         OnFlyModeChanged?.Invoke(_flyMode);
     }
 
+    protected float GetPassiveUpwardsDescend(Transform player, Camera mainCamera)
+    {
+        if (player)
+        {
+            Vector2 topLeftCorner = mainCamera.ViewportToWorldPoint(new Vector2(0, 1));
+            Vector2 bottomRightCorner = mainCamera.ViewportToWorldPoint(new Vector2(1, 0));
+
+            float maxY = topLeftCorner.y;
+            float minY = bottomRightCorner.y;
+
+            float remappedValue = player.transform.position.y.MapValue(minY, maxY, 0, 1);
+            return 1 - remappedValue;
+        }
+        else
+        {
+            Debug.LogError($"{GetType().FullName} : Player is missing.");
+            return 0;
+        }
+    }
+
     #region Event Subscription
     public void SubscribeToOnFlyModeChanged(UnityAction<FlyMode> callback) => HelperUtility.SubscribeTo(ref OnFlyModeChanged, ref callback);
     public void UnsubscribeFromOnFlyModeChanged(UnityAction<FlyMode> callback) => HelperUtility.UnsubscribeFrom(ref OnFlyModeChanged, ref callback);

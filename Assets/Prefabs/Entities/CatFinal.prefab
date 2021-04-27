@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1795753274706861845}
   - component: {fileID: 1795753274706861844}
   - component: {fileID: 1795753274706861851}
+  - component: {fileID: 5055288919590736034}
   m_Layer: 0
   m_Name: Parachute
   m_TagString: Untagged
@@ -97,6 +98,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parachuteRenderer: {fileID: 1795753274706861844}
   _isAttackInitiated: 0
+--- !u!114 &5055288919590736034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795753274706861846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4feb5cd6e69cc74439243cb1004f5790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _volume: 0.03
+  _parachuteOnID: event:/ParachuteOn
+  _parachuteOffID: event:/ParachuteOff
 --- !u!1 &1795753275378079540
 GameObject:
   m_ObjectHideFlags: 0

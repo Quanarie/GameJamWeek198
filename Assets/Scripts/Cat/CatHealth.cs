@@ -14,6 +14,12 @@ public class CatHealth : MonoBehaviour
     private event UnityAction<bool> OnDeath;
     private event UnityAction OnDamageTaken;
 
+
+    private void Awake()
+    {
+        _currentHealth = _maxHealth;
+    }
+
     /// <summary>
     /// Use this method to reduce the health
     /// </summary>
@@ -22,13 +28,11 @@ public class CatHealth : MonoBehaviour
     {
         _currentHealth = Mathf.Clamp(_currentHealth - healthToReduce, 0, _maxHealth);
 
+        OnDamageTaken?.Invoke();
+
         if (_currentHealth == 0)
         {
             OnDeath?.Invoke(true);
-        }
-        else
-        {
-            OnDamageTaken?.Invoke();
         }
     }
 

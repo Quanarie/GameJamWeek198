@@ -47,4 +47,4 @@ MonoBehaviour:
   _introMusicID: event:/IntroMusic
   _gameplayMusicID: event:/GamePlayMusic
   _startMusicID: event:/GamePlayMusic
-  _volume: 100
+  _volume: 0.03

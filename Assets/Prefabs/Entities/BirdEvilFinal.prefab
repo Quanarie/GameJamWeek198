@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 6015248260127389675}
   - component: {fileID: 6015248260127389652}
   - component: {fileID: 6585773832329334801}
+  - component: {fileID: -7054308937719028409}
   m_Layer: 0
   m_Name: BirdEvilFinal
   m_TagString: Untagged
@@ -187,6 +188,7 @@ MonoBehaviour:
       MaxHealth: 2
   _birdFlyAI: {fileID: 0}
   _birdHealth: {fileID: 0}
+  _birdSound: {fileID: 0}
   _birdAttackAI: {fileID: 0}
 --- !u!114 &6015248260127389674
 MonoBehaviour:
@@ -240,7 +242,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.05, y: 0}
   serializedVersion: 2
-  m_Radius: 0.565
+  m_Radius: 2
 --- !u!114 &6585773832329334801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,3 +256,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _birdType: 1
+--- !u!114 &-7054308937719028409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6015248260127389648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b21c43d27027fd441ac483f2c4677c69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _volume: 0.03
+  _isVisibleInCamera: 0
+  _normalBirdSoundID: event:/BigBird
+  _intervalBetweenNormalSounds: 4
+  _timePassedSinceLastNormalSound: 0
+  _isNormalSoundActivated: 0
+  _attackSoundID: 

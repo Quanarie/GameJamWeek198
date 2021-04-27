@@ -12,6 +12,7 @@ public class CatHealth : MonoBehaviour
     private float _currentHealth;
 
     private event UnityAction<bool> OnDeath;
+    private event UnityAction OnDamageTaken;
 
     /// <summary>
     /// Use this method to reduce the health
@@ -25,11 +26,17 @@ public class CatHealth : MonoBehaviour
         {
             OnDeath?.Invoke(true);
         }
+        else
+        {
+            OnDamageTaken?.Invoke();
+        }
     }
 
     #region Subscriptions
     public void SubscribeToOnDeath(UnityAction<bool> callback) => HelperUtility.SubscribeTo(ref OnDeath, ref callback);
     public void UnsubscribeFromOnDeath(UnityAction<bool> callback) => HelperUtility.UnsubscribeFrom(ref OnDeath, ref callback);
+    public void SubscribeToOnDamageTaken(UnityAction callback) => HelperUtility.SubscribeTo(ref OnDamageTaken, ref callback);
+    public void UnsubscribeFromOnDamageTakenh(UnityAction callback) => HelperUtility.UnsubscribeFrom(ref OnDamageTaken, ref callback);
 
     #endregion
 }

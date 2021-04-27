@@ -110,9 +110,10 @@ GameObject:
   - component: {fileID: 1795753275378079545}
   - component: {fileID: 1795753275378079544}
   - component: {fileID: 558753305449003213}
-  - component: {fileID: 1556500792}
   - component: {fileID: 524271393}
   - component: {fileID: 524271394}
+  - component: {fileID: 6804235312747069131}
+  - component: {fileID: -2094542080794632423}
   m_Layer: 0
   m_Name: CatFinal
   m_TagString: Untagged
@@ -202,14 +203,20 @@ MonoBehaviour:
   _maxX: 0
   _minY: 0
   _minX: 0
-  _maxRiseSpeed: 6
-  _maxFallSpeed: 6
+  _maxRiseSpeedBasedOnCameraView: 4
+  _maxFallSpeedBasedOnCameraView: 6
   _maxSlideSpeed: 2
+  _fallSpeedUponDestinationReached: 0
+  _maxFallSpeedUponDestinationReachedWithParachute: 0.02
+  _maxFallSpeedUponDestinationReachedWithoutParachute: 0.03
+  _speedIncreaseForFallSpeedUponDestinationReached: 1
   _minDistanceFromBottom: 0.1
   _minDistanceFromTop: 0.3
-  _minDistanceFromSide: 0.5
+  _minDistanceFromSide: 4.5
   _parachute: {fileID: 0}
   _parachuteMode: 0
+  _isDestinationReached: 0
+  _isMovementEnabled: 1
 --- !u!50 &1795753275378079544
 Rigidbody2D:
   serializedVersion: 4
@@ -243,22 +250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd0d11c0aa3d46842b3b40e6f74402d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!70 &1556500792
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1795753275378079540}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1.33}
-  m_Direction: 0
 --- !u!58 &524271393
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -274,7 +265,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.665
+  m_Radius: 0.55
 --- !u!114 &524271394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,9 +278,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb79aadb3f03c24093fe6be4f2c6b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackRadius: 1
+  _attackRadius: 0.55
   _attackDamage: 1
   _attackRangeCollider: {fileID: 524271393}
   _parachute: {fileID: 0}
-  _attackDuraction: 1
+  _attackDuraction: 0
   _isAbleToAttemptToAttack: 1
+--- !u!114 &6804235312747069131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795753275378079540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9071d9cce2291934898c71fd823abeea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _currentHealth: 0
+--- !u!114 &-2094542080794632423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795753275378079540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325e7fafc55fc61499a0c91c56a0c17b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _volume: 0.03
+  _catAttackID: event:/CatAttack
+  _catGetHitID: event:/CatHitByBird

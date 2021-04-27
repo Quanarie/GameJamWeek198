@@ -33,6 +33,7 @@ public class BirdSpawner : MonoBehaviour
     [SerializeField]
     private bool _isSpawningEnabled;
 
+
     private void Awake()
     {
         Current = this;
@@ -43,6 +44,8 @@ public class BirdSpawner : MonoBehaviour
             _mainCamera = Camera.main;
 
         _spawnerFrequency = _maxSpawnerFrequency;
+
+        PlayerProgressTracker.Current.SubscribeToOnProgressRemainingChanged(PlayerProgressTracker_OnProgressRemainingChanged);
     }
 
     private void Update()
@@ -166,6 +169,14 @@ public class BirdSpawner : MonoBehaviour
             Debug.LogError($"{GetType().FullName} : Failed to find MainCamera.");
             return Vector2.zero;
         }
+    }
+
+    private void PlayerProgressTracker_OnProgressRemainingChanged(float remainingProgress)
+    {
+        if (remainingProgress < 20)
+            _isSpawningEnabled = false;
+        else
+            _isSpawningEnabled = true;
     }
 
     #endregion

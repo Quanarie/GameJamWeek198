@@ -29,6 +29,14 @@ public abstract class SoundPlayer : MonoBehaviour
 
     }
 
+    private void StopSound()
+    {
+        if (_eventInstance.isValid())
+        {
+            _eventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            _eventInstance.release();
+        }
+    }
     private void UpdateVolume(float newVolume)
     {
         _volume = newVolume;
@@ -36,5 +44,14 @@ public abstract class SoundPlayer : MonoBehaviour
         {
             _eventInstance.setVolume(_volume);
         }
+    }
+
+    private void OnBecameInvisible()
+    {
+        StopSound();
+    }
+    private void OnDestroy()
+    {
+        Debug.LogError($"Unsubscribe From VolumeManager.");
     }
 }

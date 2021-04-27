@@ -1,3 +1,5 @@
+using FMOD.Studio;
+using FMODUnity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,10 +8,20 @@ using UnityEngine;
 public class CloudSound : SoundPlayer
 {
     [SerializeField]
-    private string _cloudSound;
+    private string _cloudIdleSound;
+
+    [SerializeField]
+    private string _cloudAttackSound;
+
+    [SerializeField]
+    private float _volumeIdle;
+
+    private EventInstance _eventInstance;
 
     private void Start()
     {
+        Debug.LogError($"Connect to volume manager and get volume");
+
         CloudAttack cloudAttack = GetComponent<CloudAttack>();
         if (cloudAttack)
         {
@@ -19,9 +31,51 @@ public class CloudSound : SoundPlayer
             Debug.LogError($"{GetType().FullName} : Failed to find Cloud Attack.");
     }
 
+    private void PlayCloudIdleSound()
+    {
+        if (_eventInstance.isValid())
+        {
+            _eventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            _eventInstance.release();
+        }
+
+        _eventInstance = RuntimeManager.CreateInstance(_cloudIdleSound);
+        _eventInstance.start();
+        _eventInstance.setVolume(_volumeIdle);
+    }
+
+    private void StopCloudIdleSound()
+    {
+        if (_eventInstance.isValid())
+        {
+            _eventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            _eventInstance.release();
+        }
+    }
     private void CloudAttack_OnCloudAttack()
     {
-        //Uncomment the line below when there is a sound for cloud
-        //PlaySound(_cloudSound);
+        PlaySound(_cloudAttackSound);
+    }
+    private void UpdateVolume(float newVolume)
+    {
+        _volumeIdle = newVolume;
+        if (_eventInstance.isValid())
+        {
+            _eventInstance.setVolume(_volumeIdle);
+        }
+    }
+
+    private void OnBecameVisible()
+    {
+        PlayCloudIdleSound();
+    }
+
+    protected void OnBecameInvisible()
+    {
+        StopCloudIdleSound();
+    }
+    private void OnDestroy()
+    {
+        Debug.LogError($"Unsubscribe From VolumeManager.");
     }
 }

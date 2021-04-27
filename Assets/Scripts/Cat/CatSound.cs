@@ -39,7 +39,7 @@ public class CatSound : SoundPlayer
     {
         if (isAttackInitiated)
         {
-            PlaySound(_catAttackID);
+            //PlaySound(_catAttackID);
         }
     }
 }

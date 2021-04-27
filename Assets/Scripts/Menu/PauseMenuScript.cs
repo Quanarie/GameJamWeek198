@@ -38,6 +38,7 @@ public class PauseMenuScript : MonoBehaviour
     public void LoadMenu()
     {
         Time.timeScale = 1f;
+        GameStateManager.Current.ChangeGameState(GameState.MainMenu);
         SceneManager.LoadScene(0);
     }
     public void QuitGame()

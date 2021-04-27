@@ -23,6 +23,7 @@ public class PlayerProgressTracker : MonoBehaviour
     private Transform _player;
 
     private event UnityAction<float> OnProgressUpdated;
+    private event UnityAction<float> OnProgressRemainingChanged;
     private event UnityAction OnDestinationReached;
     private void Awake()
     {
@@ -45,8 +46,10 @@ public class PlayerProgressTracker : MonoBehaviour
         {
             _currentProgress += Time.deltaTime * GetSpeedScalerBasedOnPlayerYAxisLocation() * _progressMultiplier;
             _currentProgress = Mathf.Min(_currentProgress, _progressRequired);
+            float remainingProgress = _progressRequired - _currentProgress;
 
             OnProgressUpdated?.Invoke(_currentProgress);
+            OnProgressRemainingChanged?.Invoke(remainingProgress);
 
             if (_currentProgress == _progressRequired)
             {
@@ -80,6 +83,9 @@ public class PlayerProgressTracker : MonoBehaviour
     #region Event Subscription
     public void SubscribeToOnProgressUpdated(UnityAction<float> callback) => HelperUtility.SubscribeTo(ref OnProgressUpdated, ref callback);
     public void UnsubscribeFromOnProgressUpdated(UnityAction<float> callback) => HelperUtility.UnsubscribeFrom(ref OnProgressUpdated, ref callback);
+
+    public void SubscribeToOnProgressRemainingChanged(UnityAction<float> callback) => HelperUtility.SubscribeTo(ref OnProgressRemainingChanged, ref callback);
+    public void UnsubscribeFromOnProgressRemainingChanged(UnityAction<float> callback) => HelperUtility.UnsubscribeFrom(ref OnProgressRemainingChanged, ref callback);
 
     public void SubscribeToOnDestinationReached(UnityAction callback) => HelperUtility.SubscribeTo(ref OnDestinationReached, ref callback);
     public void UnsubscribeFromOnDestinationReached(UnityAction callback) => HelperUtility.UnsubscribeFrom(ref OnDestinationReached, ref callback);

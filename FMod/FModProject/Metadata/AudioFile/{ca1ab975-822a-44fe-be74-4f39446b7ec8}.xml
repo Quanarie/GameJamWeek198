@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{ca1ab975-822a-44fe-be74-4f39446b7ec8}">
+		<property name="assetPath">
+			<value>Music/parachute_off.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.42857142857142855</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{4c501566-951e-4d2a-9bb6-2aa7a741efa4}</destination>
+		</relationship>
+	</object>
+</objects>

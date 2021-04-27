@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 524271393}
   - component: {fileID: 524271394}
   - component: {fileID: 6804235312747069131}
+  - component: {fileID: -2094542080794632423}
   m_Layer: 0
   m_Name: CatFinal
   m_TagString: Untagged
@@ -206,8 +207,8 @@ MonoBehaviour:
   _maxFallSpeedBasedOnCameraView: 6
   _maxSlideSpeed: 2
   _fallSpeedUponDestinationReached: 0
-  _maxFallSpeedUponDestinationReachedWithParachute: 0.003
-  _maxFallSpeedUponDestinationReachedWithoutParachute: 0.005
+  _maxFallSpeedUponDestinationReachedWithParachute: 0.02
+  _maxFallSpeedUponDestinationReachedWithoutParachute: 0.03
   _speedIncreaseForFallSpeedUponDestinationReached: 1
   _minDistanceFromBottom: 0.1
   _minDistanceFromTop: 0.3
@@ -215,6 +216,7 @@ MonoBehaviour:
   _parachute: {fileID: 0}
   _parachuteMode: 0
   _isDestinationReached: 0
+  _isMovementEnabled: 1
 --- !u!50 &1795753275378079544
 Rigidbody2D:
   serializedVersion: 4
@@ -296,3 +298,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _currentHealth: 0
+--- !u!114 &-2094542080794632423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795753275378079540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325e7fafc55fc61499a0c91c56a0c17b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _volume: 0.03
+  _catAttackID: event:/CatAttack
+  _catGetHitID: event:/CatHitByBird

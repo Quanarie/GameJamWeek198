@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class VolumeManager : MonoBehaviour
 {
+    public static VolumeManager Current;
+
     private event UnityAction<float> ChangeSFX;
 
     private event UnityAction<float> ChangeMusic;
@@ -14,6 +16,7 @@ public class VolumeManager : MonoBehaviour
 
     private void Awake()
     {
+        Current = this;
         DontDestroyOnLoad(gameObject);
     }
     public void SetSFX(float volume)

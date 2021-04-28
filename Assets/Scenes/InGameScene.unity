@@ -1064,11 +1064,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8407418759357499385, guid: 3084c63017d49b549b3d6fce178f4037, type: 3}
       propertyPath: _maxSpawnerFrequency
-      value: 12
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8407418759357499385, guid: 3084c63017d49b549b3d6fce178f4037, type: 3}
       propertyPath: _minSpawnerFrequency
-      value: 8
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8407418759357499385, guid: 3084c63017d49b549b3d6fce178f4037, type: 3}
+      propertyPath: _minDistanceFromSides
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3084c63017d49b549b3d6fce178f4037, type: 3}

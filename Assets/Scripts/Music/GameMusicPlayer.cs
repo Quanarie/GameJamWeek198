@@ -26,6 +26,7 @@ public class GameMusicPlayer : MonoBehaviour
         if (!Current)
         {
             Current = this;
+            PlayMusic(_mainmenuMusicID);
             DontDestroyOnLoad(gameObject);
         }
     }
@@ -39,8 +40,6 @@ public class GameMusicPlayer : MonoBehaviour
         }
         else
             Debug.LogError($"Failed to find VolumeManager");
-
-        PlayMusic(_mainmenuMusicID);
 
         GameStateManager.Current.SubscribeToOnGameStateChanged(GameStateManager_OnGameStateChanged);
     }

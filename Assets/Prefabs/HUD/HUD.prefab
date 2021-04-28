@@ -1984,6 +1984,7 @@ GameObject:
   - component: {fileID: 1764858990095519873}
   - component: {fileID: 4425983836628558654}
   - component: {fileID: 1370401169808107043}
+  - component: {fileID: 6683041609692498622}
   m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
@@ -2048,6 +2049,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6683041609692498622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8830152800734141273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3dad5daf8d4d234595b3ec348cec85a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthSprites:
+  - {fileID: 21300000, guid: bc28c9b6421a17b46a79d1fe102320d6, type: 3}
+  - {fileID: 21300000, guid: 568c9f4e3f189a442b293b38ad7313ce, type: 3}
+  - {fileID: 21300000, guid: 578b1ea687a6ed549ade19e77ebec882, type: 3}
+  _imgHealth: {fileID: 1370401169808107043}
 --- !u!1 &8996856150887749633
 GameObject:
   m_ObjectHideFlags: 0

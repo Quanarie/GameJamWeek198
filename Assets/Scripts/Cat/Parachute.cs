@@ -10,6 +10,7 @@ public class Parachute : MonoBehaviour
     private SpriteRenderer _parachuteRenderer;
     private ParachuteMode _currentMode;
 
+
     [SerializeField, Tooltip("This is for debugging")]
     private bool _isAttackInitiated;
 
@@ -22,19 +23,6 @@ public class Parachute : MonoBehaviour
             _parachuteRenderer = GetComponent<SpriteRenderer>();
         }
     }
-
-    private void Start()
-    {
-        CatAttack catAttack = gameObject.GetComponentInParent<CatAttack>();
-        if (catAttack)
-        {
-            catAttack.SubscribeToOnAttackInitiated(CatAttack_OnAttackInitiated);
-        }
-        else
-            Debug.LogError($"{GetType().FullName} : Failed to find CatAttack.");
-    }
-
-    
 
     private void Update()
     {
@@ -63,8 +51,6 @@ public class Parachute : MonoBehaviour
             Debug.LogError($"{GetType().FullName} : Parachute Renderer is missing.");
         
     }
-
-    private void CatAttack_OnAttackInitiated(bool isAttackInitiated) => _isAttackInitiated = isAttackInitiated;
 
     #region Event Subscription
     public void SubscribeToOnParachuteModeChanged(UnityAction<ParachuteMode> callback) => HelperUtility.SubscribeTo(ref OnParachuteModeChanged, ref callback);

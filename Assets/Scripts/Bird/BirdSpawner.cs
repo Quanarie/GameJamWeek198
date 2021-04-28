@@ -58,6 +58,11 @@ public class BirdSpawner : MonoBehaviour
 
     #region Public Methods
 
+    public void ResetBirdSpawner()
+    {
+        _objectPool.Clear();
+    }
+
     /// <summary>
     /// This function can be used to add a game object to the object pool.
     /// </summary>

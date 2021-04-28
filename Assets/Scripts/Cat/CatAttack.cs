@@ -53,19 +53,19 @@ public class CatAttack : MonoBehaviour
         else
             Debug.LogError($"{GetType().FullName} : AttackRangeCollider is missing.");
     }
-    void Update()
-    {
-        if (_parachuteMode == ParachuteMode.Close && Input.GetKey(KeyCode.S))
-        {
-            if (_isAbleToAttemptToAttack)
-            {
-                if (_attackInitiatedCoroutine == null)
-                    _attackInitiatedCoroutine = StartCoroutine(AttackInitiated());
-                else
-                    Debug.LogError($"{GetType().FullName} : Attack Coroutine is not null.");
-            }
-        }
-    }
+    //void Update()
+    //{
+    //    if (_parachuteMode == ParachuteMode.Close && Input.GetKey(KeyCode.S))
+    //    {
+    //        if (_isAbleToAttemptToAttack)
+    //        {
+    //            if (_attackInitiatedCoroutine == null)
+    //                _attackInitiatedCoroutine = StartCoroutine(AttackInitiated());
+    //            else
+    //                Debug.LogError($"{GetType().FullName} : Attack Coroutine is not null.");
+    //        }
+    //    }
+    //}
 
     private void Parachute_OnParachuteModeChanged(ParachuteMode parachuteMode) => _parachuteMode = parachuteMode;
 
@@ -87,7 +87,7 @@ public class CatAttack : MonoBehaviour
             yield return waitForEndOfFrame;
         }
 
-        AttackTarget();
+        //AttackTarget();
 
         _isAbleToAttemptToAttack = true;
         OnAttackInitiated?.Invoke(false);
@@ -95,23 +95,26 @@ public class CatAttack : MonoBehaviour
         _attackInitiatedCoroutine = null;
     }
 
-    private void AttackTarget()
+    private void AttackTarget(GameObject objBird)
     {
-        if(_birdsInRange.Count > 0)
-        {
-            GameObject objBird = _birdsInRange[UnityEngine.Random.Range(0, Mathf.Max(_birdsInRange.Count - 1, 0))];
+        //if(_birdsInRange.Count > 0)
+        //{
+        //    GameObject objBird = _birdsInRange[UnityEngine.Random.Range(0, Mathf.Max(_birdsInRange.Count - 1, 0))];
 
-            if (objBird)
-            {
-                BirdHealth birdHealth = objBird.GetComponent<BirdHealth>();
-                birdHealth.ReduceHealth(_attackDamage);
+        //    if (objBird)
+        //    {
+        //        BirdHealth birdHealth = objBird.GetComponent<BirdHealth>();
+        //        birdHealth.ReduceHealth(_attackDamage);
 
-                //This is a hotfix to remove bird instantly. Remove the line below once a better solution is found.
-                _birdsInRange.Remove(objBird);
-            }
-            else
-                Debug.LogError($"{GetType().FullName} : Failed to find a bird.");
-        }
+        //        //This is a hotfix to remove bird instantly. Remove the line below once a better solution is found.
+        //        _birdsInRange.Remove(objBird);
+        //    }
+        //    else
+        //        Debug.LogError($"{GetType().FullName} : Failed to find a bird.");
+        //}
+
+        BirdHealth birdHealth = objBird.GetComponent<BirdHealth>();
+        birdHealth.ReduceHealth(_attackDamage);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -124,7 +127,7 @@ public class CatAttack : MonoBehaviour
             {
                 if (birdKillableInfo.GetBirdKillType() == BirdKillType.Killable)
                 {
-                    _birdsInRange.Add(other.gameObject);
+                    AttackTarget(birdKillableInfo.gameObject);
                 }else
                     _objectsToIgnore.Add(other.gameObject);
             }

@@ -29,6 +29,13 @@ public class CatMovement : MonoBehaviour
     [SerializeField]
     private bool _isMovementEnabled;
 
+    [SerializeField]
+    private Vector3 _initialPosition;
+
+    private void Awake()
+    {
+        _initialPosition = gameObject.transform.position;
+    }
     void Start()
     {
         _mainCamera = Camera.main;
@@ -73,6 +80,12 @@ public class CatMovement : MonoBehaviour
         }
     }
 
+    public void ResetCatMovement()
+    {
+        gameObject.transform.position = _initialPosition;
+        _isMovementEnabled = true;
+        _isDestinationReached = false;
+    }
     private void HorizontalMove()
     {
         if (Input.GetKey(KeyCode.A))

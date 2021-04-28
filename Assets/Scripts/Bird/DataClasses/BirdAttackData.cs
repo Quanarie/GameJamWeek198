@@ -7,6 +7,7 @@ using UnityEngine;
 public class BirdAttackData
 {
     public float AttackRange;
-    public float AttackDamage;
+    public int AttackDamage;
     public float AttackDuration;
+    public float TimeRequiredBeforeAttack;
 }

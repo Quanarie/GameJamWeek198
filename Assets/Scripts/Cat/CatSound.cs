@@ -30,7 +30,7 @@ public class CatSound : SoundPlayer
             Debug.LogError($"{GetType().FullName} : Failed to find CatAttack.");
     }
 
-    private void CatHealth_OnDamageTaken()
+    private void CatHealth_OnDamageTaken(int currentHealth)
     {
         PlaySound(_catGetHitID);
     }

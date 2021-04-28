@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class CloudAttack : MonoBehaviour
 {
     [SerializeField]
-    private float _attackDamage;
+    private int _attackDamage;
 
     private UnityAction OnCloudAttack;
 

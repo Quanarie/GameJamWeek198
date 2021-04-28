@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4001115671616771918}
   - component: {fileID: -9110885081982250055}
   - component: {fileID: 2876722542061298738}
+  - component: {fileID: 6108774791681669893}
   m_Layer: 0
   m_Name: BirdFinal
   m_TagString: Untagged
@@ -131,6 +132,7 @@ MonoBehaviour:
       AttackRange: 0
       AttackDamage: 0
       AttackDuration: 0
+      TimeRequiredBeforeAttack: 0
     BirdHealthData:
       MaxHealth: 1
   _birdFlyAI: {fileID: 0}
@@ -165,6 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 0
   _currentHealth: 0
+  _catHealth: {fileID: 0}
 --- !u!58 &8588623209548964171
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -230,7 +233,20 @@ MonoBehaviour:
   _volume: 0.03
   _isVisibleInCamera: 0
   _normalBirdSoundID: event:/SmallBird
-  _intervalBetweenNormalSounds: 2
+  _intervalBetweenNormalSounds: 3
   _timePassedSinceLastNormalSound: 0
   _deadSoundID: event:/CatKillBird
   _birdHealth: {fileID: 0}
+--- !u!114 &6108774791681669893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918503491706139394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a44b20c451f2347829733b50129d3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _catHealth: {fileID: 0}

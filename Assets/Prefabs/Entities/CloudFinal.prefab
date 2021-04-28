@@ -357,6 +357,7 @@ GameObject:
   - component: {fileID: -9042076185038518613}
   - component: {fileID: 4054257475337966467}
   - component: {fileID: 2457736157898723179}
+  - component: {fileID: 5037376448116326800}
   m_Layer: 0
   m_Name: CloudFinal
   m_TagString: ThunderCloud
@@ -547,6 +548,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objThunder: {fileID: 3400196426845699129}
   _cloudAttack: {fileID: -9042076185038518613}
+--- !u!114 &5037376448116326800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7554195872583981305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a44b20c451f2347829733b50129d3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _catHealth: {fileID: 0}
 --- !u!1 &8545923887414821120
 GameObject:
   m_ObjectHideFlags: 0

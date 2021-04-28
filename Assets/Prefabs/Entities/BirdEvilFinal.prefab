@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 6015248260127389652}
   - component: {fileID: 6585773832329334801}
   - component: {fileID: -7054308937719028409}
+  - component: {fileID: 5683815547514035203}
   m_Layer: 0
   m_Name: BirdEvilFinal
   m_TagString: Untagged
@@ -278,3 +279,16 @@ MonoBehaviour:
   _timePassedSinceLastNormalSound: 0
   _isNormalSoundActivated: 0
   _attackSoundID: event:/BigBirdAttack
+--- !u!114 &5683815547514035203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6015248260127389648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a44b20c451f2347829733b50129d3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _catHealth: {fileID: 0}

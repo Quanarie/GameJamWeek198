@@ -17,10 +17,13 @@ public class BirdAttackAI : MonoBehaviour
     private float _attackRange;
 
     [SerializeField]
-    private float _attackDamage;
+    private int _attackDamage;
 
     [SerializeField]
     private float _attackDuraction;
+
+    [SerializeField]
+    private float _timeRequiredBeforeAttackingAgain;
 
     [SerializeField]
     private bool _isAbleToAttemptToAttack;
@@ -48,6 +51,7 @@ public class BirdAttackAI : MonoBehaviour
         _attackRange = birdAttackData.AttackRange;
         _attackDamage = birdAttackData.AttackDamage;
         _attackDuraction = birdAttackData.AttackDuration;
+        _timeRequiredBeforeAttackingAgain = birdAttackData.TimeRequiredBeforeAttack;
         _isAbleToAttemptToAttack = true;
         _target = PlayerIdentifier.Current ? PlayerIdentifier.Current.gameObject : null;
         if (!_target)
@@ -91,8 +95,8 @@ public class BirdAttackAI : MonoBehaviour
 
         AttackTarget();
 
+        yield return new WaitForSeconds(_timeRequiredBeforeAttackingAgain);
         _isAbleToAttemptToAttack = true;
-        yield return new WaitForSeconds(1);
 
         OnAttackInitiated?.Invoke(false);
     }

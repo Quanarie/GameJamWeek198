@@ -11,6 +11,11 @@ public class CatHealthUI : MonoBehaviour
     [SerializeField]
     private GameObject _objLife;
 
+    private Dictionary<int, CatHealthUIChild> _healthDictionary = new Dictionary<int, CatHealthUIChild>();
+
+    private int _numOfObjectsToCreate;
+    private int _maxHealthPerLife;
+
     [SerializeField]
     private Transform _parent;
     private void Start()
@@ -21,33 +26,40 @@ public class CatHealthUI : MonoBehaviour
 
             catHealth.SubscribeToOnDamageTaken(CatHealth_OnHealthChanged);
             catHealth.SubscribeToOnHealthGained(CatHealth_OnHealthChanged);
-            CreateLifeObjects(catHealth.GetCurrentHealth());
+            catHealth.SubscribeToOnHealthReset(CatHealth_OnHealthReset);
+            CreateHealthObjects(catHealth);
         }
     }
 
-    private void CreateLifeObjects(int count)
+    private void CatHealth_OnHealthReset()
     {
-        for (int i = 0; i < count; i++)
+        foreach (var item in _healthDictionary)
         {
-            GameObject objLife = Instantiate(_objLife, _parent);
-            objLife.SetActive(true);
-            _objLives.Add(objLife);
+            item.Value.UpdateImage(3);
         }
     }
-    private void CatHealth_OnHealthChanged(int currentHealth)
+
+    private void CreateHealthObjects(CatHealth catHealth)
     {
-        if(_objLives.Count > 0)
+        _numOfObjectsToCreate = catHealth.GetMaxLife();
+        _maxHealthPerLife = catHealth.GetMaxHealth();
+
+        for (int i = 1; i < _numOfObjectsToCreate+1; i++)
         {
-            for (int i = 0; i < _objLives.Count; i++)
+            GameObject objHealth = Instantiate(_objLife, _parent);
+            CatHealthUIChild controller = objHealth.GetComponent<CatHealthUIChild>();
+            if (controller)
             {
-                if (i <= currentHealth - 1)
-                {
-                    _objLives[i].SetActive(true);
-                }
-                else
-                    _objLives[i].SetActive(false);
+                controller.UpdateImage(_maxHealthPerLife);
+                _healthDictionary.Add(i, controller);
             }
+            else
+                Debug.LogError($"{GetType().FullName} : Failed to find controller.");
         }
-        
+    }
+    private void CatHealth_OnHealthChanged(int currentLife, int currentHealth)
+    {
+        if(_healthDictionary.ContainsKey(currentLife))
+            _healthDictionary[currentLife].UpdateImage(currentHealth);
     }
 }

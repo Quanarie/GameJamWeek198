@@ -23,7 +23,7 @@ public class PlayerBirdKillTracker : MonoBehaviour
         OnKillCountChanged?.Invoke(_currentKillCount);
     }
 
-    public void Reset()
+    public void ResetPlayerKillProgress()
     {
         _currentKillCount = 0;
         OnKillCountChanged?.Invoke(_currentKillCount);

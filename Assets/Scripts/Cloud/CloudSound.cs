@@ -20,8 +20,6 @@ public class CloudSound : SoundPlayer
 
     private void Start()
     {
-        Debug.LogError($"Connect to volume manager and get volume");
-
         CloudAttack cloudAttack = GetComponent<CloudAttack>();
         if (cloudAttack)
         {

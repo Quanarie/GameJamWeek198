@@ -59,6 +59,12 @@ public class PlayerProgressTracker : MonoBehaviour
         }
     }
 
+    public void ResetPlayerProgress()
+    {
+        _currentProgress = 0;
+        _isDestinationReached = false;
+        OnProgressRemainingChanged?.Invoke(_currentProgress);
+    }
     public float GetMaxProgress() => _progressRequired;
     private float GetSpeedScalerBasedOnPlayerYAxisLocation()
     {

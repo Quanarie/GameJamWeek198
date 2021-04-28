@@ -125,6 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 0
   _currentHealth: 0
+  _catHealth: {fileID: 0}
 --- !u!58 &2951459946004424089
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -184,6 +185,7 @@ MonoBehaviour:
       AttackRange: 1
       AttackDamage: 1
       AttackDuration: 1
+      TimeRequiredBeforeAttack: 1
     BirdHealthData:
       MaxHealth: 2
   _birdFlyAI: {fileID: 0}
@@ -226,6 +228,7 @@ MonoBehaviour:
   _attackRange: 0
   _attackDamage: 0
   _attackDuraction: 0
+  _timeRequiredBeforeAttackingAgain: 0
   _isAbleToAttemptToAttack: 0
 --- !u!58 &6015248260127389652
 CircleCollider2D:
